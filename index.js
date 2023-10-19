@@ -6,26 +6,30 @@ let text = `<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>logica-programacion-3</title>
+  <title>logica-programacion-4</title>
 </head>
 <body>
   <script>
     function calculo(){
       let num
-      let resultado = 1
-      let text = "Factorial de "
+      let a = 0
+      let b = 1
+      let c = 0
+      let arr = []
+      let text = "La secuencia de Fibonacci de "
       let element = document.createElement("p")
       try{
-        num = parseInt(document.getElementById("factorial").value)
-        text = text + num + ": "
-        for(let i = num; 0 < i; i--){
-          resultado = resultado * i
-          if(i !== 1) text = text + i + "x"
-          else{
-            text = text + i + " = " + resultado
-          }
+        num = parseInt(document.getElementById("fibo").value)
+        text = text + num + " digitos:  "
+        for(let i = 0; i < num-1; i++){
+          arr.push(c)
+          if(c === 1) arr.push(c)
+          c = b + a
+          a = b
+          b = c
           
         }
+        text = text + arr.join(",")
         
         element.appendChild(document.createTextNode(text))
         const respuesta = document.body.appendChild(element)
@@ -38,8 +42,8 @@ let text = `<!DOCTYPE html>
       
     }
   </script>
-  <label for="factorial">Ingrese el número para calcular el factorial:</label>
-  <input type="text" id="factorial" name="factorial">
+  <label for="fibo">Ingrese el número para mostrar Fibonacci:</label>
+  <input type="text" id="fibo" name="fibo">
   <button onclick="calculo()">Calcular</button>
 </body>
 </html>`
